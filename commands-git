@@ -189,3 +189,5 @@ git push -u origin main
 
 Se a branch for "master" em vez de "main":
 git push -u origin master
+
+Mensagens de commit importam. Use o padrão: tipo: descrição no imperativo. Tipos comuns: feat (nova função), fix (correção de bug), refactor (melhoria sem mudar comportamento), docs (documentação). Evite mensagens genéricas como "mudanças" ou "update".
