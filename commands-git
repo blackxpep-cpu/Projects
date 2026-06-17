@@ -1,0 +1,191 @@
+# CONFIGURAÇÃO INICIAL
+
+git config --global user.name "SeuNome"
+Define seu nome para os commits.
+
+git config --global user.email "seuemail@gmail.com"
+Define seu email para os commits.
+
+git config --list
+Mostra todas as configurações do Git.
+
+
+# CRIAR REPOSITÓRIO
+
+git init
+Cria um repositório Git na pasta atual.
+
+git clone URL_DO_REPOSITORIO
+Baixa um repositório do GitHub para seu computador.
+
+
+# VERIFICAR STATUS
+
+git status
+Mostra quais arquivos foram modificados, adicionados ou estão sem rastreamento.
+
+git diff
+Mostra as alterações feitas nos arquivos antes do commit.
+
+git diff --staged
+Mostra as alterações que já foram adicionadas com git add.
+
+
+# ADICIONAR ARQUIVOS
+
+git add arquivo.py
+Adiciona um arquivo específico para o próximo commit.
+
+git add pasta/
+Adiciona todos os arquivos de uma pasta.
+
+git add .
+Adiciona TODOS os arquivos modificados da pasta atual.
+
+git restore --staged arquivo.py
+Remove um arquivo da área de preparação (desfaz o git add).
+
+
+# SALVAR ALTERAÇÕES
+
+git commit -m "mensagem"
+Cria um commit com uma mensagem descritiva.
+
+git commit -am "mensagem"
+Adiciona e faz commit dos arquivos já rastreados em um único comando.
+
+
+# VER HISTÓRICO
+
+git log
+Mostra o histórico completo de commits.
+
+git log --oneline
+Mostra o histórico resumido em uma linha por commit.
+
+git log --graph --oneline --all
+Mostra o histórico em forma de árvore.
+
+
+# BRANCHES
+
+git branch
+Mostra as branches existentes.
+
+git branch nome-da-branch
+Cria uma nova branch.
+
+git switch nome-da-branch
+Muda para outra branch.
+
+git switch -c nome-da-branch
+Cria e muda para a nova branch.
+
+git branch -d nome-da-branch
+Apaga uma branch.
+
+
+# CONECTAR AO GITHUB
+
+git remote add origin URL_DO_REPOSITORIO
+Conecta o repositório local ao GitHub.
+
+git remote -v
+Mostra os repositórios remotos conectados.
+
+git remote remove origin
+Remove a conexão com o repositório remoto.
+
+
+# ENVIAR PARA O GITHUB
+
+git push -u origin main
+Envia os commits para o GitHub e define a branch padrão.
+
+git push
+Envia os commits mais recentes.
+
+git push origin nome-da-branch
+Envia uma branch específica.
+
+
+# BAIXAR ALTERAÇÕES DO GITHUB
+
+git pull
+Baixa e mistura as alterações do GitHub com seu projeto local.
+
+git fetch
+Baixa as alterações do GitHub sem misturá-las.
+
+git merge nome-da-branch
+Mistura outra branch com a branch atual.
+
+
+# DESFAZER ALTERAÇÕES
+
+git restore arquivo.py
+Desfaz alterações em um arquivo que ainda não foi commitado.
+
+git restore .
+Desfaz todas as alterações locais.
+
+git reset HEAD arquivo.py
+Remove um arquivo da área de preparação.
+
+git reset --hard HEAD
+Volta para o último commit e APAGA alterações locais.
+CUIDADO: não tem volta.
+
+git revert HASH_DO_COMMIT
+Cria um novo commit desfazendo um commit anterior.
+
+
+# APAGAR ARQUIVOS
+
+git rm arquivo.py
+Remove um arquivo e registra a remoção no Git.
+
+git rm -r pasta/
+Remove uma pasta inteira.
+
+
+# TAGS
+
+git tag
+Lista todas as tags.
+
+git tag v1.0
+Cria uma tag.
+
+git push origin v1.0
+Envia uma tag para o GitHub.
+
+
+# FLUXO MAIS COMUM (DECORAR)
+
+git status
+Ver o que mudou.
+
+git add .
+Adicionar tudo.
+
+git commit -m "mensagem"
+Salvar as alterações.
+
+git push
+Enviar para o GitHub.
+
+git pull
+Baixar alterações do GitHub.
+
+
+# PRIMEIRA VEZ EM UM PROJETO
+
+git init
+git add .
+git commit -m "Primeiro commit"
+git remote add origin URL_DO_REPOSITORIO
+git push -u origin main
+
+Se a branch for "master" em vez de "main":
+git push -u origin master
