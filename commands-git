@@ -191,3 +191,16 @@ Se a branch for "master" em vez de "main":
 git push -u origin master
 
 Mensagens de commit importam. Use o padrão: tipo: descrição no imperativo. Tipos comuns: feat (nova função), fix (correção de bug), refactor (melhoria sem mudar comportamento), docs (documentação). Evite mensagens genéricas como "mudanças" ou "update".
+
+
+COMANDOS DE EMERGÊNCIA — QUANDO AS COISAS DEREM ERRADO
+
+# desfazer último commit MAS manter as mudanças (mais seguro)
+ git reset --soft HEAD~1
+# guardar mudanças temporariamente (ex: urgência surgiu)
+ git stash # guarda tudo
+ git stash pop # restaura depois
+# descartar mudanças de um arquivo (cuidado: irreversível)
+ git restore app.py
+# ver quem mudou cada linha de um arquivo
+ git blame app.py
