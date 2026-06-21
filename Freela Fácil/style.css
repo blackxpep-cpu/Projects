@@ -7,6 +7,16 @@
     box-sizing: border-box;
 }
 
+
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE e Edge antigo */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Edge e Safari */
+}
+
 .tela-centralizada {
     display: flex;
     min-height: 100vh;
@@ -191,6 +201,8 @@ h1 {
 
 .container {
     max-width: 600px;
+    width: 100%;
+    padding: 0 20px;
     margin: 0 auto;
 }
 
@@ -209,27 +221,29 @@ h1 {
     width: 30px;
 }
 
+.notificacoes {
+    position: relative;
+    background-color: transparent;
+}
+
 .badge {
+    position: absolute; /* fixou o item */
+    top: -8px;
+    right: -8px;
+    width: 26px;
+    height: 26px;
     display: flex;
-    position: absolute;
-    top: 10px;
-    right: 10.3rem;
     align-items: center;
     justify-content: center;
-    max-width: 26px;
-    max-height: 26px;
-    min-width: 26px;
-    min-height: 26px;
     color: #fff;
-    background-color: #c10606;
+    border-radius: 50%;
     font-size: 12px;
     font-weight: 500;
-    border-radius: 50%;
-    text-align: center;
 }
 
 .notificacoes {
     background-color: transparent;
+    position: relative;
 }
 
 .busca input {
@@ -291,9 +305,14 @@ h1 {
     margin-bottom: 30px;
 
     box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
--webkit-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
--moz-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -moz-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
 }
+
+.vagas:hover {
+    cursor: pointer;
+}
+
 
 .vagas h3 {
     font-weight: 500;
@@ -315,12 +334,16 @@ footer {
     position: fixed;
     left: 20px;
     right: 20px;
-    bottom: 20px;
+    bottom: 10px;
 
     background-color: #000;
     border-radius: 20px;
     padding: 15px;
     z-index: 1000;
+
+    box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
+    -webkit-box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
+    -moz-box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
 }
 
 .icons {
@@ -338,5 +361,253 @@ footer {
 }
 
 .icons button:hover {
+    cursor: pointer;
+}
+
+
+/* ============ DETALHES DA VAGA ============ */
+
+.detalhes-vaga h1 {
+    display: flex;
+    margin: 70px 0 0 25px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.valor {
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #4F959D;
+}
+
+.valor span {
+    font-weight: 400;
+}
+
+.data-publi {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 60px;
+}
+
+.estrela {
+    font-size: 15px;
+    color: #ccc;
+}
+
+.estrela.ativa {
+    color: gold;
+}
+
+.section-avaliacao {
+    background-color: #679CA2;
+    margin-bottom: 5rem;
+}
+
+.sec-detalhes h2 {
+    font-size: 21px;
+}
+
+.sec-detalhes .autor {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.sec-detalhes .descricao {
+    margin-top: 10px;
+    font-size: 16px;
+} 
+
+.titulo-avaliacao {
+    font-size: 19px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.section-avaliacao .nome-avaliador {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.section-avaliacao .desc-avaliador {
+
+    font-size: 15px;
+}
+
+.desc-avaliador {
+    margin-bottom: 20px;
+}
+
+.container-avaliacao {
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+.button-candidatar  {
+    margin-bottom: 30px;
+}
+
+.ver-avaliacoes {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    margin: 0 8px 5px;
+    transition: 0.2s;
+}
+
+.ver-avaliacoes:hover {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.realizacao-cand {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(0,0,0,0.4); /* camada cinza translúcida */
+    backdrop-filter: blur(5px); /* desfoca o conteúdo atrás */
+    z-index: 999; /* garante que fique acima de tudo */
+}
+
+.conteudo-cand {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #D9D9D9;
+}
+
+.x-icon {
+    width: 25px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.x-icon:hover {
+    cursor: pointer;
+}
+
+.realizacao-cand h2 {
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.realizacao-cand button {
+    background-color: #4F959D;
+    color: #fff;
+    padding: 10px 20px;
+}
+.realizacao-cand button:hover {
+    cursor: pointer;
+    background-color: #397177;
+}
+
+/* ============ TELA MAIS OPÇÕES ============ */
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0 0 1.5rem;
+}
+
+.opcoes img {
+    width: 24px;
+}
+
+.voltar {
+    display: flex;
+    align-items: center;   /* centraliza verticalmente */
+    gap: 6px;              /* espaço entre seta e texto */
+    font-weight: 500;
+    color: #333;
+}
+
+.seta-opcoes {
+    display: flex;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+}
+
+.opcoes h1 {
+    display: flex;
+    align-items: end;
+    margin-top: 2rem;
+    font-weight: 500;
+}
+
+.nav-opcoes li a {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-opcoes li {
+    list-style: none;
+    margin: 10px 20px;
+    background-color: #317981;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.nav-opcoes li:hover {
+    cursor: pointer;
+    background-color: #397177;
+}
+
+
+/* ============ TELA NOTIFICAÇÕES ============ */
+
+.notificacoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background-color: #317981;
+    margin: 20px;
+    padding: 18px;
+    border-radius: 20px;
+
+    box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -moz-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+}
+
+.notificacoes h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.notificacoes p {
+    font-size: 14px;
+}
+
+.data-time {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.notificacoes:hover {
+    cursor: pointer;
+    background-color: #397177;
+}
+
+.img-opcoes:hover {
     cursor: pointer;
 }
