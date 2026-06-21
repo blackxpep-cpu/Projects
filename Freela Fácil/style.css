@@ -611,3 +611,90 @@ footer {
 .img-opcoes:hover {
     cursor: pointer;
 }
+
+
+/* ============ TELA NOTIFICAÇÕES ============ */
+
+.form-suporte {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 30px;
+    padding: 20px;
+    border-radius: 13px;
+    border: 1px solid #ccc;
+    
+}
+
+.form-suporte input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.form-suporte textarea {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.botao-suporte {
+    background-color: #4F959D; 
+    padding: 15px 20px;
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px 30px;
+    width: calc(100% - 60px);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.botao-suporte:hover {
+    cursor: pointer;
+    background-color: #397177;
+}
+
+.opcoes h1 {
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+/* ============ TELA ENVIO ============ */
+
+.confirmacao-envio {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0,0,0,0.4); /* camada cinza translúcida */
+    backdrop-filter: blur(5px); /* desfoca o conteúdo atrás */
+    z-index: 999; /* garante que fique acima de tudo */
+}
+
+.conteudo-envio {
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin: 0 30px;
+    
+}
+
+.conteudo-envio p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
