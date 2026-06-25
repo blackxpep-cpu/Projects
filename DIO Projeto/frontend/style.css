@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-image: url("./assets/img-fundo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000306;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.nivel, .categoria {
+    display: flex;
+    padding: 20px 40px;
+    color: #fff;
+}
+
+.nivel li, .categoria li {
+    padding: 10px 15px;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    background: linear-gradient(
+        to right,
+        #ffffff,
+        #b8c0ff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+p {
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+textarea {
+    resize: none;
+    border-radius: 20px;
+    background-color: #04101C;
+    border: 2px solid #ccc;
+    color: #ccc;
+    font-size: 16px;
+    padding: 20px;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+button {
+    background: linear-gradient(
+        to right,
+        #002842,
+        #b8c0ff
+    );
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 3rem;
+    padding: 20px 60px;
+    border-radius: 30px;
+    border: none;
+    transition: ease 0.5s;
+
+    box-shadow: 10px 10px 25px -15px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 25px -15px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 25px -15px rgba(0,0,0,0.75);
+}
+
+button:hover {
+    cursor: pointer;
+    transition: ease 0.5s;
+        background: linear-gradient(
+        to right,
+        #b8c0ff,
+        #002842
+    );
+}
+
+.active {
+    background: linear-gradient(
+        to right,
+        #002842,
+        #b8c0ff
+    );
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+.active:hover {
+    cursor: pointer;
+
+    background: linear-gradient(
+        to right,
+        #b8c0ff,
+        #002842
+    );
+}
+
+textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #04101C;
+    border-radius: 10px;
+}

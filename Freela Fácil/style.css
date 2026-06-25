@@ -144,15 +144,22 @@ h1 {
 
 /* ============ RESET SENHA ============ */
 .logotipo-reset img {
-    width: 250px;
+    width: 190px;
 }
 
-.reset-senha {
+.reset {
     display: flex;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #e6dbdb ;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-reset {
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #e6dbdb ;
+    margin: 20px;
 }
 
 .botoes-senha {
@@ -169,13 +176,10 @@ h1 {
     min-width: auto;
     transition: 0.5s;
 }
+
 .button-resetar {
     font-weight: 500;
-}
-.button-cancelar, .button-resetar {
     min-width: auto;
-    margin-top: 20px;
-    
 }
 
 .cancelar {
@@ -188,7 +192,7 @@ h1 {
 
 .input-reset {
     border: 1px solid #e6dbdb;
-    padding: 13px;
+    padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
 }
@@ -698,3 +702,91 @@ footer {
     font-size: 18px;
 }
 
+
+/* ============ TELA PERFIL FREELANCER ============ */
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.perfil img {
+    margin-bottom: 10px;
+    width: 150px;
+}
+.botao-foto {
+    margin-bottom: 15px;
+}
+.botao-foto:hover {
+    cursor: pointer;
+}
+
+.dados {
+    display: flex;
+    gap: 2rem;
+    margin: 20px 0;
+}
+
+.dados-pessoais {
+    list-style: none;
+    margin: 20px;
+    padding: 30px;
+    background-color: #317981;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.dados-pessoais  img {
+    width: 30px;
+}
+
+.dados-pessoais  img:hover {
+    cursor: pointer;
+}
+
+.dados-pessoais h3 {
+    margin-bottom: 10px;
+}
+
+.cabecalho-dados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.colunas {
+    display: grid;
+    margin: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    color: #fff;
+}
+
+
+.desc-perfil, .candidaturas {
+    background-color: #317981;
+    border-radius: 15px;
+    padding: 30px;;
+}
+
+.candidaturas {
+    margin-bottom: 90px;
+}
+
+.candidaturas h3 {
+    margin-bottom: 5px;
+}
+
+.perfil-free {
+    margin-top: 10px;
+    color: #fff;
+    padding: 10px;
+    background-color: #095e68;
+}
+.perfil-free:hover {
+    cursor: pointer;
+    background-color: #4F959D;
+}
