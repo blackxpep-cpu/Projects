@@ -139,3 +139,21 @@ textarea::-webkit-scrollbar-thumb {
     background: #04101C;
     border-radius: 10px;
 }
+
+.resultado {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    color: #ccc;
+}
+
+.resultadoPrompt {
+    margin-top: 25px;
+    width: 70%;
+    height: 50%;
+    border: 1px solid #092030;
+    white-space: pre-wrap;
+    padding: 20px;
+}

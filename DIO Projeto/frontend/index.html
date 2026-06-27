@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Prompt Optimizer</title>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -20,18 +22,28 @@
                 <li>Conteúdo</li>
                 <li>Outros</li>
             </nav>
-        </header>
-        <main>
-            <h1>Digite qual prompt você deseja melhorar</h1>
-            <p>Escreva o que você precisa e nós vamos te devolver um prompt otimizado, que vai melhorar seu resultado com IA.</p>
+            </header>
+            <main>
+                <h1>Digite qual prompt você deseja melhorar</h1>
+                <p>Escreva o que você precisa e nós vamos te devolver um prompt otimizado, que vai melhorar seu
+                    resultado
+                    com IA.</p>
 
-            <form action="">
-                <label for="prompt"></label>
-                <textarea id="prompt" maxlength="1000" cols="100" rows="5"></textarea>
-                <button class="botao-otimizar" type="submit">Otimizar</button>
-            </form>
-        </main>
+                <form action="">
+                    <label for="prompt"></label>
+                    <textarea id="prompt" maxlength="1000" cols="100" rows="5"></textarea>
+                    <button class="botao-otimizar" type="submit">Otimizar</button>
+                </form>
+
+            </main>
+
+            <section class="resultado">
+                    <h2>PROMPT OTIMIZADO</h2>
+                    <textarea class="resultadoPrompt" readonly></textarea>
+                    <button class="botao-novaOtm" type="submit">Gerar novo Prompt</button>
+                </section>
     </div>
 </body>
 <script src="/frontend/script.js"></script>
+
 </html>
