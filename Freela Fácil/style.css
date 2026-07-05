@@ -908,3 +908,139 @@ footer {
     font-weight: 600;
     margin-left: 10px;
 }
+
+/* ============ VAGAS PUBLICADAS (CONTRATANTE) ============ */
+
+.opcoes-publi {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #E6EFF0;
+    padding: 10px;
+    margin: 0px 20px;
+    border-radius: 15px;
+}
+
+.publicadas {
+    background-color: #D0E1E3;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.opc:hover {
+    cursor: pointer;
+}
+
+.containerp, 
+.containerc {
+    margin: 20px 20px 0px 20px;
+}
+
+.publicacoes, .mensagensc {
+    color: #fff;
+    background-color: #327981;
+    padding: 20px;
+    border-radius: 20px;
+
+    box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+    -moz-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+}
+
+.descricao-publi {
+    margin-top: 20px;
+}
+
+.valor-publi {
+    font-size: 15px;
+}
+
+.editar-publi,
+.publicacoes,
+.mensagensc:hover {
+    cursor: pointer;
+}
+
+.img-sms {
+    width: 30px;
+    height: 30px;
+}
+
+.qtd-candi {
+    font-size: 13px;
+    margin: 40px 0px 10px 6px;
+}
+
+.nomeV {
+    margin-top: 10px;
+}
+
+.mensagensc {
+    margin: 20px;
+}
+
+.notificacao {
+    position: relative;
+    display: inline-block;
+}
+
+.qtdM {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: #fff;
+    background-color: red;
+    top: -6px;
+    right: -6px;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* ============ EDITAR VAGAS (CONTRATANTE) ============ */
+
+.campos {
+    background-color: #CADFE2;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.campos input::placeholder {
+    font-size: 18px;
+}
+
+.desc {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    outline: none;
+}
+
+.botoes-edit {
+    display: grid;
+    margin: 0 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.excluir-vaga {
+    background-color: #c11818;
+}
+
+.excluir-vaga:hover {
+    background-color: #7e0a0a;
+}
+
+.salvar-vaga {
+    background-color: #317981;
+}
