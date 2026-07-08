@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --cor-primaria: #317981;
+    --cor-primaria-hover: #397177;
+    --cor-secundaria: #4F959D;
+    --cor-fundo-campo: #CADFE2;
+}
+
 * {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -52,7 +59,7 @@ main {
     padding: 15px;
     gap: 10px;
     border-radius: 12px;
-    background-color: #CADFE2;
+    background-color: var(--cor-fundo-campo);
     margin-bottom: 20px;
 }
 
@@ -106,7 +113,7 @@ button {
 }
 
 .botao-cheio {
-    background-color: #4F959D; 
+    background-color: var(--cor-secundaria); 
     padding: 10px 20px;
     min-width: 100%;
     margin: 20px 0px 10px 0;
@@ -115,7 +122,7 @@ button {
 
 .botao-cheio:hover {
     cursor: pointer;
-    background-color: #397177;
+    background-color: var(--cor-primaria-hover);
 
 }
 
@@ -225,11 +232,11 @@ h1 {
     width: 70px;
 }
 
-.notificacoes img {
+.btn-notificacoes img {
     width: 30px;
 }
 
-.notificacoes {
+.btn-notificacoes {
     position: relative;
     background-color: transparent;
 }
@@ -244,14 +251,10 @@ h1 {
     align-items: center;
     justify-content: center;
     color: #fff;
+    background-color: #c90101;
     border-radius: 50%;
     font-size: 12px;
     font-weight: 500;
-}
-
-.notificacoes {
-    background-color: transparent;
-    position: relative;
 }
 
 .busca input {
@@ -307,7 +310,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    background-color: #317981;
+    background-color: var(--cor-primaria);
     color: #fff;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -349,10 +352,6 @@ footer {
     border-radius: 20px;
     padding: 15px;
     z-index: 1000;
-
-    box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
-    -webkit-box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
-    -moz-box-shadow: 2px 71px 14px 63px rgba(255,255,255,1);
 }
 
 .icons {
@@ -389,7 +388,7 @@ footer {
     font-weight: 600;
     border-radius: 10px;
     padding: 10px;
-    background-color: #4F959D;
+    background-color: var(--cor-secundaria);
 }
 
 .valor span {
@@ -517,13 +516,13 @@ footer {
 }
 
 .realizacao-cand button {
-    background-color: #4F959D;
+    background-color: var(--cor-secundaria);
     color: #fff;
     padding: 10px 20px;
 }
 .realizacao-cand button:hover {
     cursor: pointer;
-    background-color: #397177;
+    background-color: var(--cor-primaria-hover);
 }
 
 /* ============ TELA MAIS OPÇÕES ============ */
@@ -553,14 +552,6 @@ footer {
     text-decoration: none;
 }
 
-.opcoes h1 {
-    display: flex;
-    align-items: end;
-    margin-top: 1rem;
-    
-    font-weight: 500;
-}
-
 .nav-opcoes li a {
     font-size: 18px;
     font-weight: 600;
@@ -571,14 +562,14 @@ footer {
 .nav-opcoes li {
     list-style: none;
     margin: 10px 20px;
-    background-color: #317981;
+    background-color: var(--cor-primaria);
     padding: 10px;
     border-radius: 12px;
 }
 
 .nav-opcoes li:hover {
     cursor: pointer;
-    background-color: #397177;
+    background-color: var(--cor-primaria-hover);
 }
 
 
@@ -589,7 +580,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    background-color: #317981;
+    background-color: var(--cor-primaria);
     margin: 20px;
     padding: 18px;
     border-radius: 20px;
@@ -615,7 +606,7 @@ footer {
 
 .notificacoes:hover {
     cursor: pointer;
-    background-color: #397177;
+    background-color: var(--cor-primaria-hover);
 }
 
 .img-opcoes:hover {
@@ -653,7 +644,7 @@ footer {
 }
 
 .botao-suporte {
-    background-color: #4F959D; 
+    background-color: var(--cor-secundaria); 
     padding: 15px 20px;
     color: #fff;
     border-radius: 10px;
@@ -666,7 +657,7 @@ footer {
 
 .botao-suporte:hover {
     cursor: pointer;
-    background-color: #397177;
+    background-color: var(--cor-primaria-hover);
 }
 
 .opcoes h1 {
@@ -679,7 +670,7 @@ footer {
 /* ============ TELA ENVIO ============ */
 
 .confirmacao-envio {
-    display: flex;
+    display: none;
     min-height: 100vh;
     flex-direction: column;
     justify-content: center;
@@ -740,7 +731,7 @@ footer {
     list-style: none;
     margin: 20px;
     padding: 30px;
-    background-color: #317981;
+    background-color: var(--cor-primaria);
     border-radius: 15px;
     color: #fff;
 }
@@ -773,7 +764,7 @@ footer {
 
 
 .desc-perfil, .candidaturas {
-    background-color: #317981;
+    background-color: var(--cor-primaria);
     border-radius: 15px;
     padding: 30px;;
 }
@@ -794,7 +785,7 @@ footer {
 }
 .perfil-free:hover {
     cursor: pointer;
-    background-color: #4F959D;
+    background-color: var(--cor-secundaria);
 }
 
 .minhas-candida h1 {
@@ -802,7 +793,7 @@ footer {
     font-size: 20px;
 }
 
-.candituras-p {
+.candidaturas-p {
     margin-top: 25px;
     margin-left: 10px;
     font-size: 16px;
@@ -868,9 +859,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 37px;
-    height: 37px;
-    background-color: #317981;
+    width: 30px;
+    height: 30px;
+    background-color: var(--cor-primaria);
     padding: 15px;
     border-radius: 50%;
     color: #fff;
@@ -882,6 +873,7 @@ footer {
 }
 
 .chat {
+    position: relative;
     margin: 0 20px;
 }
 
@@ -895,9 +887,9 @@ footer {
 }
 
 .hora-chat {
-    position: fixed;
-    margin-left: 21rem;
-    font-size: 10px;
+    position: absolute;
+    margin-left: 18rem;
+    font-size: 11px;
 }
 
 
@@ -939,7 +931,7 @@ footer {
 
 .publicacoes, .mensagensc {
     color: #fff;
-    background-color: #327981;
+    background-color: var(--cor-primaria);
     padding: 20px;
     border-radius: 20px;
 
@@ -1009,7 +1001,7 @@ footer {
 /* ============ EDITAR VAGAS (CONTRATANTE) ============ */
 
 .campos {
-    background-color: #CADFE2;
+    background-color: var(--cor-fundo-campo);
     padding: 20px;
     margin: 20px;
     border-radius: 15px;
@@ -1042,5 +1034,5 @@ footer {
 }
 
 .salvar-vaga {
-    background-color: #317981;
+    background-color: var(--cor-primaria);
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Cadastro Contratante</title>
 </head>
 <body>
@@ -16,27 +16,27 @@
         <form action="" method="post">
             <div class="campo">
                 <label for="nome-completo" class="visually-hidden">razao-social</label>
-                <input type="text" placeholder="Razão Social" required>
+                <input type="text" id="nome-completo" placeholder="Razão Social" required>
             </div>
 
             <div class="campo">
                 <label for="cnpj" class="visually-hidden">cnpj</label>
-                <input type="number" placeholder="CNPJ" required>
+                <input type="number" id="cnpj" placeholder="CNPJ" required>
             </div>
 
             <div class="campo">
                 <label for="e-mail" class="visually-hidden">E-mail</label>
-                <input type="email" placeholder="E-mail" required>
+                <input type="email" id="e-mail" placeholder="E-mail" required>
             </div>
 
             <div class="campo">
                 <label for="senha" class="visually-hidden">senha</label>
-                <input type="password" placeholder="Senha" required>
+                <input type="password" id="senha" placeholder="Senha" required>
             </div>
 
             <div class="campo">
                 <label for="repita-senha" class="visually-hidden">repita-senha</label>
-                <input type="password" placeholder="Repita a senha" required>
+                <input type="password" id="repita-senha" placeholder="Repita a senha" required>
             </div>
 
             <button class="botao-cheio final-cadastro">FINALIZAR CADASTRO</button>
