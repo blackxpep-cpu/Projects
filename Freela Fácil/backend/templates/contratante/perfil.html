@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Perfil Freelancer</title>
+</head>
+
+<body>
+    <main>
+        <div class="perfil">
+            <img src="{{ url_for('static', filename='assets/foto-perfil.png') }}" alt="foto-perfil">
+
+            <label class="botao-foto" for="foto">Alterar foto</label>
+            <input type="file" id="foto" accept="image/*" hidden>
+
+            <h2>Nome do contratante</h2>
+            <div class="dados">
+                <p>email@gmail.com</p>
+                <p>nome de usuário</p>
+            </div>
+        </div>
+        <div class="dados-pessoais">
+            <div class="cabecalho-dados">
+                <h3>Dados Pessoais</h3>
+                <img src="{{ url_for('static', filename='assets/edit-icon.png') }}" alt="editar-dados">
+            </div>
+            <nav>
+                <ul>
+                    <li>Nome completo:</li>
+                    <li>E-mail:</li>
+                    <li>Contato:</li>
+                    <li>CNPJ:</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="colunas">
+            <div class="candidaturas">
+                <h3>Vagas publicadas:</h3>
+                <p>Você publicou X vagas!</p>
+                <a href="{{ url_for('vagas_publicadas') }}"><button class="perfil-free">VER VAGAS</button></a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <nav class="icons">
+            <a href="{{ url_for('home') }}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+            <a href="{{ url_for('mais_opcoes') }}"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+            <a href="{{ url_for('perfil_contratante') }}"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+        </nav>
+    </footer>
+</body>
+
+</html>

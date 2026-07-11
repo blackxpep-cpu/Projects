@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Vagas</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="tela-inicial">
+            <div class="logo-tela-inicial">
+                <img src="{{ url_for('static', filename='assets/logotipo.png') }}" alt="Freela Facil">
+            </div>
+            <a href="#">
+                <button class="btn-notificacoes">
+                    <img src="{{ url_for('static', filename='assets/sino-icon.png') }}" alt="sino">
+                    <span class="badge">9</span>
+                </button>
+            </a>
+        </header>
+
+        <div class="busca campo">
+            <label for="buscar" class="visually-hidden">Buscar vagas</label>
+            <input type="text" id="buscar" placeholder="Buscar...">
+            <img src="{{ url_for('static', filename='assets/lupa-icon.png') }}" alt="lupa">
+        </div>
+
+        <p class="localizacao">
+            <img src="{{ url_for('static', filename='assets/loc-icon.png') }}" alt="pin">
+            Belo Horizonte, MG
+        </p>
+
+        <section class="lista-vagas">
+            <div class="lista-vagas-topo">
+                <h2>Vagas</h2>
+
+                <div class="filtro">
+                    <button>Filtros
+                    <img class="button-filtro" src="{{ url_for('static', filename='assets/seta-baixo-icon.png') }}" alt="seta">
+                    </button>
+                </div>
+            </div>
+            <p class="contador">1.081 vagas</p>
+
+            <div class="vagas" style="cursor: pointer;">
+                <h3 class="titulo">Assistente Administrativo</h3>
+                <p class="descricao">
+                    Descricao da vaga: É um facto estabelecido de que um leitor é distraído pelo conteúdo legível. 
+                    É um facto estabelecido de que um leitor é distraído pelo conteúdo legível.
+                </p>
+                <p class="localizacao-vaga">Belo Horizonte, MG</p>
+            </div>
+
+            <div class="vagas" style="cursor: pointer;">
+                <h3 class="titulo">Assistente Administrativo</h3>
+                <p class="descricao">
+                    Descricao da vaga: É um facto estabelecido de que um leitor é distraído pelo conteúdo legível. 
+                    É um facto estabelecido de que um leitor é distraído pelo conteúdo legível.
+                </p>
+                <p class="localizacao-vaga">Belo Horizonte, MG</p>
+            </div>
+            
+            <div class="vagas" style="cursor: pointer;">
+                <h3 class="titulo">Assistente Administrativo</h3>
+                <p class="descricao">
+                    Descricao da vaga: É um facto estabelecido de que um leitor é distraído pelo conteúdo legível. 
+                    É um facto estabelecido de que um leitor é distraído pelo conteúdo legível.
+                </p>
+                <p class="localizacao-vaga">Belo Horizonte, MG</p>
+            </div>
+        </section>
+
+        <footer>
+            <nav class="icons">
+                <a href="#"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+                <a href="#"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+                <a href="#"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

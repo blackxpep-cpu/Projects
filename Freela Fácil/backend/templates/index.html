@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Freela Facil</title>
+</head>
+
+<body>
+    <div class="tela-centralizada">
+        <header class="logotipo-login">
+            <img src="{{ url_for('static', filename='assets/logotipo.png') }}" alt="logotipo">
+        </header>
+
+        <main>
+            <form action="{{ url_for('login')}}" method="post">
+                <div class="campo">
+                    <img src="{{ url_for('static', filename='assets/user-icon.png') }}" alt="">
+                    <label for="email-usuario" class="visually-hidden">Email ou usuário</label>
+                    <input type="text" id="email-usuario" name="email" placeholder="E-mail ou usuário" required>
+                </div>
+
+                <div class="campo">
+                    <img src="{{ url_for('static', filename='assets/padlock-icon.png') }}" alt="">
+                    <label for="senha" class="visually-hidden">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                    <img src="{{ url_for('static', filename='assets/eye-icon.png') }}" alt="olho-icone">
+                </div>
+                <a href="{{ url_for('botao_resetsenha')}}" class="esquecer-senha">Esqueceu sua senha?</a>
+                <button type="submit" class="botao-cheio button-login">ENTRAR</button>
+                <p class="criar-conta">Não possui conta? <a href="{{ url_for('cadastro_tipo')}}">  Cadastre-se!</></p>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

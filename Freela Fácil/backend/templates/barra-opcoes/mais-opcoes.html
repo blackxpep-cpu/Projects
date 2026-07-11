@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Mais Opções</title>
+</head>
+<body>
+    <header class="opcoes">
+        <div class="voltar">
+            <img class="img-opcoes" src="{{ url_for('static', filename='assets/seta-esq-icon.png') }}" alt="voltar">
+            <a class="seta-opcoes" href="{{ url_for('home') }}">Voltar</a>
+        </div>
+        <h1>MAIS OPÇÕES</h1>
+    </header>
+    <main>
+        <nav class="nav-opcoes">
+            <ul>
+                <li><a href="{{ url_for('notificacoes') }}">Notificações</a></li>
+                <li><a href="{{ url_for('chat') }}">Chat de mensagens</a></li>
+                <li><a href="{{ url_for('suporte') }}">Ajuda - Suporte</a></li>
+                <li><a href="{{ url_for('index') }}">Sair da conta</a></li>
+            </ul>
+        </nav>
+    </main>
+</body>
+</html>

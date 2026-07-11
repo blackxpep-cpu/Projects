@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Vagas Publicadas</title>
+</head>
+
+<body>
+    <header class="minhas-candida opcoes">
+        <div class="voltar">
+            <img class="img-opcoes" src="{{ url_for('static', filename='assets/seta-esq-icon.png') }}" alt="voltar">
+            <a class="seta-opcoes" href="{{ url_for('home') }}">Voltar</a>
+        </div>
+        <h1>ÁREA DO CONTRATANTE</h1>
+    </header>
+
+    <main>
+        <div class="opcoes-publi">
+            <div class="opc publicadas">
+                <p>Vagas publicadas</p>
+            </div>
+            <div class="opc candidatos">
+                <p>Candidatos</p>
+            </div>
+        </div>
+
+        <!--
+                <div class="containerp">
+            <p class="qtd-candi">10 vagas publicadas!</p>
+            <div class="publicacoes">
+                <div class="cabecalho">
+                    <h3 class="titulo">Assistente Administrativo</h3>
+                    <img class="editar-publi" src="{{ url_for('static', filename='assets/edit-publi.png') }}" alt="editar-dados">
+                </div>
+                <p class="valor-publi">70,00 dia</p>
+                <p class="descricao-publi">
+                    Descricao da vaga: É um facto estabelecido de que um leitor é distraído pelo conteúdo legível.
+                </p>
+            </div>
+        </div>
+-->
+
+        <div class="containerc">
+            <p class="qtd-candi">10 pessoas se candidataram a suas vagas!</p>
+        </div>
+
+        <div class="mensagensc">
+            <div class="cabecalho">
+                <h3>Maria R. Vasconcelos</h3>
+                <div class="notificacao">
+                    <img class="img-sms" src="{{ url_for('static', filename='assets/sms-icon.png') }}" alt="sms-icon">
+                    <p class="qtdM">1</p>
+                </div>
+            </div>
+            <p class="nomeV">Panfletagem</p>
+        </div>
+    </main>
+
+    <footer>
+        <nav class="icons">
+            <a href="{{ url_for('home') }}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+            <a href="{{ url_for('mais_opcoes') }}"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+            <a href="{{ url_for('perfil_contratante') }}"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+        </nav>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Cadastro Freelancer</title>
+</head>
+
+<body>
+    <div class="tela-centralizada">
+        <header>
+            <h1 class="registro">Registrar-se como <br> Freelancer</h1>
+        </header>
+
+        <main class="form-freela">
+            <form action="{{url_for('registrar_freela')}}" method="post">
+                <div class="campo">
+                    <label for="nome-completo" class="visually-hidden">nome-completo</label>
+                    <input type="text" id="nome-completo" name="nome" placeholder="Nome completo" required>
+                </div>
+
+                <div class="campo">
+                    <label for="cpf" class="visually-hidden">cpf</label>
+                    <input type="text" minlength="11" maxlength="11" pattern="\d{11}" title="Digite os 11 números do CPF" name="cpf" placeholder="CPF" required>
+                </div>
+
+                <div class="campo">
+                    <label for="e-mail" class="visually-hidden">e-mail</label>
+                    <input type="email" id="e-mail" name="email" placeholder="E-mail" required>
+                </div>
+
+                <div class="campo">
+                    <label for="senha" class="visually-hidden">senha</label>
+                    <input type="password" minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, uma minúscula e um número." name="senha" placeholder="Senha" required>
+                </div>
+
+                <div class="campo">
+                    <label for="repita-senha" class="visually-hidden">repita-senha</label>
+                    <input type="password" id="repita-senha" name="repita_senha" placeholder="Repita a senha" required>
+                </div>
+
+                <button type="submit" class="botao-cheio final-cadastro">FINALIZAR CADASTRO</button>
+
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>
