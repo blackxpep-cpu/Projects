@@ -12,7 +12,7 @@
     <header class="minhas-candida opcoes">
         <div class="voltar">
             <img class="img-opcoes" src="{{ url_for('static', filename='assets/seta-esq-icon.png') }}" alt="voltar">
-            <a class="seta-opcoes" href="{{ url_for('vagas_publicadas') }}">Voltar</a>
+            <a class="seta-opcoes" href="">Voltar</a>
         </div>
         <h1>EDITAR VAGA</h1>
     </header>
@@ -21,12 +21,12 @@
         <form action="" method="post">
             <div class="campos">
                 <label for="nome-vaga" class="visually-hidden">Nome da vaga</label>
-                <input type="text" id="nome-vaga" placeholder="Nome vaga" required>
+                <input type="text" name="titulo" id="nome-vaga" placeholder="Nome vaga" required>
             </div>
 
             <div class="campos">
                 <label for="valor-pago" class="visually-hidden">Valor Pago</label>
-                <input type="number" id="valor-pago" placeholder="Valor Pago" required>
+                <input type="number" name="valor" id="valor-pago" placeholder="Valor Pago" required>
             </div>
 
             <div class="campos">
@@ -34,10 +34,21 @@
                 <textarea class="desc" name="descricao" id="descricao" cols="40" rows="10" placeholder="Descrição"></textarea>
             </div>
 
+            <div class="campos">
+                <label for="status-vaga" class="visually-hidden">Status da vaga</label>
+                <select name="status" id="status-vaga" class="input-padrao" required>
+                    <option value="" disabled selected>Selecione o status</option>
+                    <option value="aberta">Aberta</option>
+                    <option value="em_analise">Em Análise</option>
+                    <option value="fechada">Fechada / Preenchida</option>
+                    <option value="cancelada">Cancelada</option>
+                </select>
+            </div>
+
 
             <div class="botoes-edit">
                 <button class="botao-cheio excluir-vaga">EXCLUIR VAGA</button>
-                <button class="botao-cheio salvar-vaga">PUBLICAR</button>
+                <button class="botao-cheio salvar-vaga">SALVAR E PUBLICAR</button>
             </div>
         </form>
     </main>

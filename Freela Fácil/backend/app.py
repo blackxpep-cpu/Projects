@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = '80291f20b2d0181711a34781a99dd5ebe5ee07c7296c1948'
@@ -22,6 +23,16 @@ class Contratante(db.Model):
     cnpj = db.Column(db.String(18), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     senha = db.Column(db.String(200), nullable=False)
+
+class Vagas(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    contratante_id = db.Column(db.Integer, db.ForeignKey('contratante.id'), nullable=False)
+    criador = db.relationship('Contratante', backref='vagas_criadas')
+    titulo = db.Column(db.String(100), nullable=False)
+    remuneracao = db.Column(db.String(50), nullable=False)
+    descricao = db.Column(db.String(500), nullable=False)
+    status = db.Column(db.String(20), default='Aberta')
+    data_criacao = db.Column(db.DateTime, default=datetime.utcnow)
 
 # --- ROTAS DO PROJETO ---
 
@@ -116,11 +127,15 @@ def login():
         senha_digitada = request.form['senha']
         
         usuario = Freelancer.query.filter_by(email=email_digitado).first()
+        tipo_usuario = 'freelancer'
         if not usuario:
             usuario = Contratante.query.filter_by(email=email_digitado).first()
+            tipo_usuario = 'contratante'
         
         if usuario and check_password_hash(usuario.senha, senha_digitada):
-            return render_template('vagas/tela-inicial.html')
+            session['usuario_id'] = usuario.id
+            session['tipo'] = tipo_usuario
+            return redirect(url_for('mostrar_vaga_tela'))
         
         else:
             return "E-mail ou senha incorretos. Tente novamente."
@@ -130,9 +145,112 @@ def login():
 def botao_resetsenha():
     return render_template('reset-senha.html')
 
+@app.route('/criar_vaga', methods=['GET', 'POST'])
+def criar_vaga():
+    if request.method == 'GET':
+        return render_template('contratante/criar-vaga.html')
+    elif request.method == 'POST':
+        if 'usuario_id' not in session or session['tipo'] != 'contratante':
+            flash("Você precisa ser um contratante para publicar uma vaga!")
+            return redirect(url_for('login'))
+        
+        titulo = request.form['titulo']
+        descricao = request.form['descricao']
+        remuneracao = request.form['valor']
+        status = request.form['status']
+        
+        id_contratante = session['usuario_id']
+        
+        nova_vaga = Vagas(
+            contratante_id = id_contratante,
+            titulo = titulo,
+            descricao = descricao,
+            remuneracao = remuneracao,
+            status = status
+        )
+        
+        db.session.add(nova_vaga)
+        db.session.commit()
+        
+        flash("Vaga publicada!")
+        return redirect(url_for('minhas_vagas'))
+    
+@app.route('/botao_perfil')
+def botao_perfil():
+    if 'usuario_id' not in session:
+        flash("Você precisa estar logado para ver o seu perfil.")
+        return redirect(url_for('login'))
+    
+    tipo_usuario = session.get('tipo')
+    
+    if tipo_usuario == 'freelancer':
+        return render_template('freelancer/perfilfree.html')
+    elif tipo_usuario == 'contratante':
+        return render_template('contratante/perfilcont.html')
 
+    
+@app.route('/mostrar_vagas_tela')
+def mostrar_vaga_tela():
+    if 'usuario_id' not in session:
+        flash("Você precisa estar logado para acessar as vagas.")
+        return redirect(url_for('login'))
+        
+    todas_vagas = Vagas.query.filter_by(status='aberta').all()
+    
+    return render_template('vagas/tela-inicial.html', vagas_na_tela=todas_vagas)
+
+@app.route('/minhas_vagas')
+def minhas_vagas():
+    if 'usuario_id' not in session or session.get('tipo') != 'contratante':
+        flash("Você precisa estar logado como contratante para acessar as vagas.")
+        return redirect(url_for('login'))
+    
+    id_contratante = session['usuario_id']
+    minhas_vagas_banco = Vagas.query.filter_by(contratante_id=id_contratante).all()
+    
+    return render_template('contratante/vagaspubli.html', vagas_na_tela=minhas_vagas_banco)
+
+@app.route('/detalhes-vaga/<int:id>')
+def detalhes_vaga(id):  
+    vaga_clicada = Vagas.query.get(id)
+
+    if not vaga_clicada:
+        return "Vaga não encontrada!", 404
+    
+    return render_template('vagas/detalhes-vaga.html', vaga=vaga_clicada)
+
+@app.route('/edit_vaga/<int:id>', methods=['GET', 'POST'])
+def edit_vaga(id):
+    vaga_selecionada = Vagas.query.get(id)
+    if not vaga_selecionada:
+        return "Vaga não encontrada!", 404
+    
+    if vaga_selecionada.contratante_id != session ['usuario_id']:
+        flash("Você não tem permissão para editar esta vaga!")
+        redirect(url_for('minhas_vagas'))
+    
+    if request.method == 'GET':
+        return redirect('minhas_vagas')
+    if request.method == 'POST':
+        if 'usuario_id' not in session or session.get('tipo') != 'Contratante':
+            flash("Você precisa ser um contratante para editar uma vaga!")
+            return redirect(url_for('login'))
+        
+        vaga_selecionada.titulo = request.form['titulo']
+        vaga_selecionada.descricao = request.form['descricao']
+        vaga_selecionada.remuneracao = request.form['remuneracao']
+        vaga_selecionada.status = request.form['status']
+    
+        db.session.commit()
+        
+        flash("Vaga editada com sucesso!")
+        redirect(url_for('minhas_vagas'))
+    
+    return render_template('contratante/edit-vaga.html')
 
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+    
+    

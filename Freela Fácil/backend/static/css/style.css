@@ -945,6 +945,10 @@ footer {
     -moz-box-shadow: 10px 16px 31px -17px rgba(0,0,0,0.8);
 }
 
+.publicacoes {
+    margin-bottom: 20px;
+}
+
 .cabecalho {
     display: flex;
     justify-content: space-between;

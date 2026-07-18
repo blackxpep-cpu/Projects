@@ -40,16 +40,17 @@
             <div class="candidaturas">
                 <h3>Vagas publicadas:</h3>
                 <p>Você publicou X vagas!</p>
-                <a href="{{ url_for('vagas_publicadas') }}"><button class="perfil-free">VER VAGAS</button></a>
+                <a href="{{ url_for('criar_vaga')}}"><button class="perfil-free">PUBLICAR VAGA</button></a>
+                <a href="{{ url_for('minhas_vagas')}}"><button class="perfil-free">VER VAGAS</button></a>
             </div>
         </div>
     </main>
     
     <footer>
         <nav class="icons">
-            <a href="{{ url_for('home') }}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
-            <a href="{{ url_for('mais_opcoes') }}"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
-            <a href="{{ url_for('perfil_contratante') }}"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+            <a href=""><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+            <a href=""><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+            <a href=""><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
         </nav>
     </footer>
 </body>

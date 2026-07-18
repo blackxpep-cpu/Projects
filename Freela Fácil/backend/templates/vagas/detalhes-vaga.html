@@ -15,15 +15,12 @@
 
     <main class="container">
         <section class="sec-detalhes vagas">
-            <h2>Título</h2>
-            <p class="autor">Autor: Nome do autor</p>
-            <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore odio magni inventore,
-                quibusdam esse
-                enim.
-                Sequi cupiditate, reprehenderit, vitae enim ipsum minima nisi excepturi ad molestias adipisci, dolores
-                perferendis placeat.
-            </p>
-            <p class="valor">VALOR PAGO: <span>150,00</span></p>
+            
+            <h2> {{ vaga.titulo }} </h2>
+            <p class="autor">Autor: {{ vaga.criador.nome }} </p>
+            <p class="descricao"> {{ vaga.descricao }} </p>
+            <p class="valor">VALOR PAGO: <span> {{ vaga.remuneracao }} </span></p>
+            
         </section>
         <p class="data-publi">
             Data da publicação:
@@ -86,9 +83,9 @@
 
     <footer>
         <nav class="icons">
-            <a href="{{ url_for('home') }}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
-            <a href="{{ url_for('mais_opcoes') }}"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
-            <a href="{{ url_for('perfil_freelancer') }}"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+            <a href="{{ url_for('mostrar_vaga_tela')}}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+            <a href=""><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+            <a href=""><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
         </nav>
     </footer> 
 
