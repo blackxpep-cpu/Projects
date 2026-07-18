@@ -21,38 +21,45 @@
         <form action="" method="post">
             <div class="campos">
                 <label for="nome-vaga" class="visually-hidden">Nome da vaga</label>
-                <input type="text" name="titulo" id="nome-vaga" placeholder="Nome vaga" required>
+                <input type="text" name="titulo" placeholder="Titulo" value="{{ vaga.titulo }}" required>
             </div>
 
             <div class="campos">
                 <label for="valor-pago" class="visually-hidden">Valor Pago</label>
-                <input type="number" name="valor" id="valor-pago" placeholder="Valor Pago" required>
+                <input type="number" name="remuneracao" placeholder="Valor pago" value="{{ vaga.remuneracao }}" required>
             </div>
 
             <div class="campos">
                 <label for="descricao" class="visually-hidden">descricao</label>
-                <textarea class="desc" name="descricao" id="descricao" cols="40" rows="10" placeholder="Descrição"></textarea>
+                <textarea class="desc" name="descricao" cols="40" rows="10" placeholder="Descrição">{{ vaga.descricao }}</textarea>
             </div>
 
             <div class="campos">
                 <label for="status-vaga" class="visually-hidden">Status da vaga</label>
                 <select name="status" id="status-vaga" class="input-padrao" required>
                     <option value="" disabled selected>Selecione o status</option>
-                    <option value="aberta">Aberta</option>
-                    <option value="em_analise">Em Análise</option>
-                    <option value="fechada">Fechada / Preenchida</option>
-                    <option value="cancelada">Cancelada</option>
+                    <option value="aberta" {% if vaga.status == 'aberta' %}selected{% endif %}>Aberta</option>
+                    <option value="em_analise" {% if vaga.status == 'em_analise' %}selected{% endif %}>Em Análise</option>
+                    <option value="fechada" {% if vaga.status == 'fechada' %}selected{% endif %}>Fechada / Preenchida</option>
+                    <option value="cancelada" {% if vaga.status == 'cancelada' %}selected{% endif %}>Cancelada</option>
                 </select>
             </div>
 
 
             <div class="botoes-edit">
-                <button class="botao-cheio excluir-vaga">EXCLUIR VAGA</button>
-                <button class="botao-cheio salvar-vaga">SALVAR E PUBLICAR</button>
+                <a href="{{ url_for('excluir_vaga', id=vaga.id)}}" type="button" class="botao-cheio excluir-vaga">EXCLUIR VAGA</a>
+                <button type="submit" class="botao-cheio salvar-vaga">SALVAR E PUBLICAR</button>
             </div>
         </form>
     </main>
     </div>
+    <footer>
+            <nav class="icons">
+                <a href="{{ url_for('mostrar_vaga_tela')}}"><button aria-label="Inicio"><img src="{{ url_for('static', filename='assets/casa-icon.png') }}" alt="home"></button></a>
+                <a href="#"><button aria-label="Mais Opções"><img src="{{ url_for('static', filename='assets/opcoes-icon.png') }}" alt="opcoes"></button></a>
+                <a href="{{ url_for('botao_perfil')}}"><button aria-label="Perfil"><img src="{{ url_for('static', filename='assets/perfil-icon.png') }}" alt="perfil"></button></a>
+            </nav>
+        </footer>
 </body>
 
 </html>

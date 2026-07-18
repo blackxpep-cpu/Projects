@@ -227,12 +227,14 @@ def edit_vaga(id):
     
     if vaga_selecionada.contratante_id != session ['usuario_id']:
         flash("Você não tem permissão para editar esta vaga!")
-        redirect(url_for('minhas_vagas'))
+        return redirect(url_for('minhas_vagas'))
     
     if request.method == 'GET':
-        return redirect('minhas_vagas')
+        return render_template('contratante/edit-vaga.html',
+        vaga=vaga_selecionada)
+        
     if request.method == 'POST':
-        if 'usuario_id' not in session or session.get('tipo') != 'Contratante':
+        if 'usuario_id' not in session or session.get('tipo') != 'contratante':
             flash("Você precisa ser um contratante para editar uma vaga!")
             return redirect(url_for('login'))
         
@@ -244,9 +246,30 @@ def edit_vaga(id):
         db.session.commit()
         
         flash("Vaga editada com sucesso!")
-        redirect(url_for('minhas_vagas'))
+        return redirect(url_for('minhas_vagas'))
     
-    return render_template('contratante/edit-vaga.html')
+    return render_template('contratante/edit-vaga.html', vaga=vaga_selecionada)
+
+@app.route('/excluir_vaga/<int:id>')
+def excluir_vaga(id):
+    vaga = Vagas.query.get(id)
+    
+    if not vaga:
+        return "Vaga não encontrada!", 404
+    
+    if vaga.contratante_id != session ['usuario_id']:
+        flash("Você não tem permissão para editar esta vaga!")        
+        return redirect(url_for('minhas_vagas'))
+    
+    if 'usuario_id' not in session or session.get('tipo') != 'contratante':
+        flash("Você precisa ser um contratante para editar uma vaga!")
+        return redirect(url_for('login'))
+    
+    db.session.delete(vaga)
+    db.session.commit()
+    
+    flash("Vaga excluída com sucesso!")
+    return redirect(url_for('minhas_vagas'))
 
 if __name__ == '__main__':
     with app.app_context():
